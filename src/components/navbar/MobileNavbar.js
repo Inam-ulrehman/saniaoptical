@@ -1,5 +1,5 @@
 import { React, useState, useRef, useEffect } from 'react'
-import { FaList } from 'react-icons/fa'
+import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { navbarData } from '../../utils/data'
 import MobileNavbarComponent from './MobileNavbarComponent'
 import MobileNavbarWrapper from '../../wrappers/MobileNavbarWrapper'
@@ -27,8 +27,11 @@ const MobileNavbar = () => {
       <div className='container'>
         <div className='container-header'>
           <Logo />
-
-          <FaList onClick={handleMenu} className='menu-icon' />
+          {values ? (
+            <AiOutlineClose onClick={handleMenu} className='menu-icon' />
+          ) : (
+            <AiOutlineMenu onClick={handleMenu} className='menu-icon' />
+          )}
         </div>
         <div ref={listContainerRef} className='links'>
           <ul ref={listRef} className='link '>

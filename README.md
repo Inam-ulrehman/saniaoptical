@@ -8,4 +8,6 @@ Uploaded api
 
 https://saniaopticalbyinam.herokuapp.com/api/v1/products/static
 
+Site in action in production = https://saniaoptical.netlify.app/
+
 2. creating structure for site look....

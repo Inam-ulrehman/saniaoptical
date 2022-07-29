@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const DesktopNavbarWrapper = styled.nav`
-  @media (max-width: 1120px) {
+  @media (max-width: 768px) {
     display: none;
   }
 

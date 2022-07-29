@@ -1,14 +1,33 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
-const MobileNavbarComponent = ({ path, title, values, setValues }) => {
+const MobileNavbarComponent = ({ path, title, values, setValues, icon }) => {
   return (
-    <li>
+    <Wrapper>
+      {icon}
       <NavLink onClick={() => setValues(!values)} to={path}>
         {title}
       </NavLink>
-    </li>
+    </Wrapper>
   )
 }
-
+const Wrapper = styled.li`
+  transition: var(--transition);
+  color: var(--grey-5);
+  a {
+    color: var(--grey-5);
+  }
+  :hover {
+    padding-left: 1rem;
+  }
+  display: flex;
+  gap: 1rem;
+  svg {
+    margin-top: 6px;
+  }
+  .active {
+    color: var(--primary-5);
+  }
+`
 export default MobileNavbarComponent

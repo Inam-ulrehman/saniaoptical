@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 const MobileNavbarWrapper = styled.nav`
-  @media (min-width: 1120px) {
+  @media (min-width: 768px) {
     display: none;
   }
 
@@ -19,6 +19,10 @@ const MobileNavbarWrapper = styled.nav`
 
     .menu-icon {
       font-size: 2rem;
+      :hover {
+        cursor: pointer;
+        color: var(--primary-5);
+      }
     }
   }
   .links {
