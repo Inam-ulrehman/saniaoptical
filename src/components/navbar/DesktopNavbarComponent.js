@@ -16,6 +16,8 @@ const Wrapper = styled.li`
   a {
     color: var(--grey-5);
     transition: var(--transition);
+    padding: 7px !important;
+    margin-left: 2px;
     :hover {
       background-color: var(--primary-3);
       color: var(--white);

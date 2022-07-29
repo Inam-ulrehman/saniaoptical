@@ -10,11 +10,11 @@ export const navbarData = [
   { id: 3, path: '/contact', title: 'Contact', icon: <FaPhoneAlt /> },
   {
     id: 4,
-    path: '/collection',
+    path: '/products',
     title: 'Collection',
     icon: <AiOutlineSearch />,
   },
-  { id: 4, path: '/member', title: 'Member', icon: <FaUserTie /> },
+  { id: 5, path: '/user', title: 'Member', icon: <FaUserTie /> },
 
-  { id: 4, path: '/cart', title: 'Cart', icon: <IoMdCart /> },
+  { id: 6, path: '/cart', title: 'Cart', icon: <IoMdCart /> },
 ]
