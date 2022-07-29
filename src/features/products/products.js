@@ -13,7 +13,7 @@ export const getProductsThunk = createAsyncThunk(
   'user/getProductsThunk',
   async (_, thunkAPI) => {
     try {
-      const response = await customFetchProducts.get('/products')
+      const response = await customFetchProducts.get('/products/static')
       console.log(response)
     } catch (error) {
       console.log(error.response)
