@@ -6,6 +6,7 @@ const Products = () => {
   return (
     <div>
       <Filter />
+      <ProductsHolder />
     </div>
   )
 }
