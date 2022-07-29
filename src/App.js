@@ -1,7 +1,9 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { getProductsThunk } from './features/products/products'
 import {
   SharedLayout,
   LandingPage,
@@ -13,8 +15,13 @@ import {
   Products,
   SingleProduct,
 } from './pages'
+import { useDispatch } from 'react-redux'
 
 const App = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getProductsThunk())
+  }, [])
   return (
     <BrowserRouter>
       <Routes>
