@@ -21,6 +21,7 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProductsThunk())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <BrowserRouter>
