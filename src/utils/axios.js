@@ -10,3 +10,9 @@ export const customFetch = axios.create({
 export const customFetchProducts = axios.create({
   baseURL: 'https://saniaopticalbyinam.herokuapp.com/api/v1',
 })
+
+// User rootURL
+
+export const customFetchUser = axios.create({
+  baseURL: 'https://apiprojectinam.herokuapp.com/api/v1/auth',
+})
