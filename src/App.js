@@ -34,7 +34,7 @@ const App = () => {
           <Route path='cart' element={<Cart />} />
           <Route path='user' element={<User />} />
           <Route path='Products' element={<Products />} />
-          <Route path='Products:Id' element={<SingleProduct />} />
+          <Route path='/Products/:Id' element={<SingleProduct />} />
         </Route>
       </Routes>
       <ToastContainer />

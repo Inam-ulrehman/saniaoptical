@@ -13,6 +13,9 @@ const MobileNavbarComponent = ({ path, title, values, setValues, icon }) => {
   )
 }
 const Wrapper = styled.li`
+  :hover {
+    cursor: pointer;
+  }
   transition: var(--transition);
   color: var(--grey-5);
   a {

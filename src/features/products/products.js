@@ -5,6 +5,7 @@ const initialState = {
   products: [],
   copyProducts: [],
   isLoading: false,
+  totalProducts: '',
 }
 
 // Creating Api just using user name instead of api
@@ -14,9 +15,10 @@ export const getProductsThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await customFetchProducts.get('/products/static')
-      console.log(response)
+
+      return response.data
     } catch (error) {
-      console.log(error.response)
+      return thunkAPI.rejectWithValue(error.response)
     }
   }
 )
@@ -32,7 +34,12 @@ const productsSlice = createSlice({
     [getProductsThunk.pending]: (state, payload) => {
       state.isLoading = true
     },
-    [getProductsThunk.fulfilled]: (state, payload) => {
+    [getProductsThunk.fulfilled]: (state, { payload }) => {
+      const { nbHits, products } = payload
+
+      state.totalProducts = nbHits
+      state.products = products
+      state.copyProducts = state.products
       state.isLoading = false
     },
     [getProductsThunk.rejected]: (state, payload) => {
