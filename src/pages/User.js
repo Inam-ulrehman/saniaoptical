@@ -2,7 +2,6 @@ import React from 'react'
 
 import styled from 'styled-components'
 import FormInputHolder from '../components/LandingPageHolders/FormInputHolder'
-import Logo from '../components/Logo'
 
 const LandingPage = () => {
   return (
