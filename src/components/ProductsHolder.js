@@ -12,7 +12,7 @@ const ProductsHolder = ({
   return (
     <Wrapper className='grid'>
       <div className={gridView ? 'grid-view' : 'list-view'}>
-        <Link to={`/products/:${productId}`} className='article-containers'>
+        <Link to={`/products/${productId}`} className='article-containers'>
           <div className='image-holder'>
             <img src={image1} alt='' />
           </div>
@@ -87,7 +87,6 @@ const Wrapper = styled.div`
   .grid-view {
     .article-containers {
       display: grid;
-
       max-width: 150px;
       margin: 0 auto;
       box-shadow: var(--shadow-2);
