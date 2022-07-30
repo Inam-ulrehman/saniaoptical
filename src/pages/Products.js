@@ -43,6 +43,13 @@ const Products = () => {
           return <ProductsHolder gridView={gridView} key={item._id} {...item} />
         })}
       </div>
+      <button
+        style={{ position: 'sticky', left: '0', bottom: '0' }}
+        className='btn'
+        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+      >
+        Move-UP
+      </button>
     </Wrapper>
   )
 }

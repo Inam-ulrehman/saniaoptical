@@ -18,7 +18,7 @@ const ProductsHolder = ({
           </div>
           <div className='body-holder'>
             <p className={boolean ? '' : 'collection-p'}>
-              {!boolean ? 'New Collection' : 'Classic'}
+              {!boolean ? 'New ' : 'Classic'}
             </p>
             <p>CAD $ {currency}</p>
           </div>
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   .list-view {
     .article-containers {
       display: grid;
-      @media (min-width: 992px) {
+      @media (min-width: 768px) {
         max-width: 450px;
       }
       max-width: 250px;
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     .image-holder {
       max-width: 250px;
       max-height: 250px;
-      @media (min-width: 992px) {
+      @media (min-width: 768px) {
         max-width: 450px;
         max-height: 450px;
       }
