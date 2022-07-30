@@ -1,13 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import Filter from '../components/Filter'
 import ProductsHolder from '../components/ProductsHolder'
+import { handleGridView } from '../features/products/products'
 
 const Products = () => {
-  const { copyProducts, isLoading } = useSelector((state) => state.products)
-  console.log(isLoading)
-  console.log(copyProducts)
+  const dispatch = useDispatch()
+  const { copyProducts, isLoading, gridView } = useSelector(
+    (state) => state.products
+  )
+  const handleView = () => {
+    dispatch(handleGridView())
+  }
   if (isLoading) {
     return (
       <div>
@@ -20,9 +25,22 @@ const Products = () => {
     <Wrapper>
       <Filter />
       <hr />
-      <div className='products-container'>
+      <button className='btn' type='button' onClick={handleView}>
+        {gridView ? 'ListView' : 'Grid View'}
+      </button>
+
+      {gridView ? null : (
+        <div className='products-container'>
+          {copyProducts.map((item) => {
+            return (
+              <ProductsHolder gridView={gridView} key={item._id} {...item} />
+            )
+          })}
+        </div>
+      )}
+      <div className='products-container-grid'>
         {copyProducts.map((item) => {
-          return <ProductsHolder key={item._id} {...item} />
+          return <ProductsHolder gridView={gridView} key={item._id} {...item} />
         })}
       </div>
     </Wrapper>
@@ -32,7 +50,6 @@ const Wrapper = styled.div`
   @media (min-width: 600px) {
     .products-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
     }
   }
 
@@ -40,10 +57,30 @@ const Wrapper = styled.div`
   }
   @media (min-width: 992px) {
     .products-container {
-      grid-template-columns: 1fr 1fr 1fr;
     }
   }
   @media (min-width: 1200px) {
-  } ;
+  }
+  /* ===Grid-View==== */
+  .products-container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 600px) {
+    .products-container-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 768px) {
+  }
+  @media (min-width: 992px) {
+    .products-container-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  @media (min-width: 1200px) {
+  }
 `
 export default Products

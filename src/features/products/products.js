@@ -6,6 +6,7 @@ const initialState = {
   copyProducts: [],
   isLoading: false,
   totalProducts: '',
+  gridView: true,
 }
 
 // Creating Api just using user name instead of api
@@ -28,6 +29,9 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     createFunction: (state, { payload }) => {},
+    handleGridView: (state, { payload }) => {
+      state.gridView = !state.gridView
+    },
   },
 
   extraReducers: {
@@ -48,5 +52,5 @@ const productsSlice = createSlice({
   },
 })
 
-export const { createFunction } = productsSlice.actions
+export const { createFunction, handleGridView } = productsSlice.actions
 export default productsSlice.reducer
