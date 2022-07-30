@@ -13,6 +13,7 @@ const MobileNavbarComponent = ({ path, title, values, setValues, icon }) => {
   )
 }
 const Wrapper = styled.li`
+  padding: 1rem;
   :hover {
     cursor: pointer;
   }
@@ -22,7 +23,7 @@ const Wrapper = styled.li`
     color: var(--grey-5);
   }
   :hover {
-    padding-left: 1rem;
+    padding-left: 1.4rem;
   }
   display: flex;
   gap: 1rem;
