@@ -29,21 +29,7 @@ const SingleProduct = () => {
   } else {
     let tempProduct = products.find((item) => item._id === Id)
 
-    const {
-      Boolean,
-      createAt,
-      currency,
-      description,
-      image1,
-      image2,
-      image4,
-      image6,
-      list1,
-      numberrange,
-      product,
-      _id,
-      image3,
-    } = tempProduct
+    const { description, image1, image2, image4, image6, image3 } = tempProduct
     const Images = [image1, image2, image3, image4, image6]
     const handleIndex = (e) => {
       const clickIndex = e.target.id
