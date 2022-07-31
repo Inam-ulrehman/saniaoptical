@@ -50,8 +50,10 @@ const SingleProduct = () => {
                     Price: <span>{(tempProduct.price * 2) / 100} CAD $</span>
                   </p>
                   <p>
-                    Shipping:{' '}
-                    <span>{tempProduct.shipping ? 'Yes ' : 'No'}</span>
+                    Free Shipping:{' '}
+                    <span>
+                      {tempProduct.shipping ? 'Yes ' : 'No-(Charges Apply)'}
+                    </span>
                   </p>
                   Colors in Stock:
                   {tempProduct.colors?.map((item, index) => {
@@ -63,6 +65,14 @@ const SingleProduct = () => {
                       ></div>
                     )
                   })}
+                  <div>
+                    <Link className='btn' to='/products'>
+                      Back to products
+                    </Link>{' '}
+                    <Link className='btn' to='cart'>
+                      Add to cart
+                    </Link>{' '}
+                  </div>
                 </div>
               </div>
               <hr />
