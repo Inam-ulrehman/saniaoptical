@@ -132,7 +132,7 @@ const productSlice = createSlice({
       state.isLoading = true
     },
     [getAllProductsThunk.fulfilled]: (state, { payload }) => {
-      const { nbHits, products } = payload
+      const { products } = payload
       state.allProducts = products
       state.isLoading = false
       state.products = paginate(products)
