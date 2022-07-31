@@ -1,16 +1,10 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Filter, ProductsHolder, Sort } from '../components'
-import {
-  changePageIndex,
-  nextPageIndex,
-  prevPageIndex,
-} from '../features/products/productsSlice'
 
 const Products = () => {
-  const dispatch = useDispatch()
-  const { isLoading, allProducts, products, limitProducts } = useSelector(
+  const { isLoading, allProducts, limitProducts } = useSelector(
     (state) => state.products
   )
 
