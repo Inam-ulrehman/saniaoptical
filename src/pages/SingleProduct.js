@@ -1,15 +1,12 @@
 import { React, useState, useEffect } from 'react'
-import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import SinglePageHolder from '../components/SinglePageHolder'
+import Footer from '../components/Footer'
 
 const SingleProduct = () => {
   const [value, setValue] = useState(false)
-  const { products, isLoading } = useSelector((state) => state.products)
-  const [index, setIndex] = useState([0])
-
+  const { allProducts, isLoading } = useSelector((state) => state.products)
   const params = useParams()
   const { Id } = params
 
@@ -20,116 +17,147 @@ const SingleProduct = () => {
   useEffect(() => {
     fixRefresh()
   }, [])
-  if (isLoading || !value) {
+  if (isLoading) {
     return (
       <div>
         <h3 className='title'>Loading...</h3>
       </div>
     )
   } else {
-    let tempProduct = products.find((item) => item._id === Id)
-
-    const { description, image1, image2, image4, image6, image3 } = tempProduct
-    const Images = [image1, image2, image3, image4, image6]
-    const handleIndex = (e) => {
-      const clickIndex = e.target.id
-      setIndex(clickIndex)
-    }
+    let tempProduct = allProducts.find((item) => item.id === Id)
 
     return (
-      <>
-        <Wrapper>
-          <h1>hello</h1>
-          <h5>{description}</h5>
-          <div className='container'>
-            <div className='image-description'>
-              <div className='image-container'>
-                <img src={Images[index]} alt='' />
+      <div>
+        {value && (
+          <Wrapper>
+            <div className='container'>
+              <div className='image-info-container'>
+                <div className='img-container'>
+                  <img className='img' src={tempProduct.image} alt='' />
+                </div>
+                <div className='info'>
+                  <h4 className='title'>
+                    <span>{tempProduct.name}</span>
+                  </h4>
+                  <p>
+                    Category:
+                    <span>{tempProduct.category}</span>
+                  </p>
+                  <p>
+                    Company: <span>{tempProduct.company}</span>
+                  </p>
+                  <p>
+                    Price: <span>{(tempProduct.price * 2) / 100} CAD $</span>
+                  </p>
+                  <p>
+                    Shipping:{' '}
+                    <span>{tempProduct.shipping ? 'Yes ' : 'No'}</span>
+                  </p>
+                  Colors in Stock:
+                  {tempProduct.colors?.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className='btn div-style'
+                        style={{ backgroundColor: item }}
+                      ></div>
+                    )
+                  })}
+                </div>
               </div>
+              <hr />
               <div className='description'>
-                <p className='title' style={{ margin: '0' }}>
-                  {tempProduct.product}
-                </p>
+                <h3 className='title'>description</h3>
+                <div className='title-underline'></div>
 
-                <p className='title'>
-                  Arrival date -{' '}
-                  {moment(tempProduct.createdAt).format('MMM Do YY')}
+                <div className='information'>
+                  <p>{tempProduct.description}</p>
+                </div>
+              </div>
+              <div className='contact'>
+                <h4>have questions ? </h4>
+                <p>
+                  please reach us one of our team member would be please to help
+                  you ASAP...
                 </p>
-                <div className='price-holder'>
-                  <p>Total items : 7</p>
-                  <p>CAD $ : {tempProduct.currency}</p>
-                </div>
-                <div className='button-holder'>
-                  <Link className='btn' to='/products'>
-                    back to Products
-                  </Link>
-                  <button type='button' className='btn'>
-                    Add to cart
-                  </button>
-                </div>
+                <Link to='/contact' className='btn'>
+                  Reach us
+                </Link>
+                <p>if you like to contact us we show contact us component</p>
               </div>
             </div>
-          </div>
-          {/* //Small images box */}
-
-          <SinglePageHolder
-            handleIndex={handleIndex}
-            image1={image1}
-            image2={image2}
-            image3={image3}
-            image4={image4}
-            image6={image6}
-          />
-        </Wrapper>
-      </>
+            <Footer />
+          </Wrapper>
+        )}
+      </div>
     )
   }
 }
 
 const Wrapper = styled.section`
-  .image-description {
+  margin-top: 3rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+  .image-info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    .image-container {
-      max-width: 300px;
-      max-height: 300px;
-      margin: 0 auto;
-      overflow: hidden;
+    gap: 1rem;
 
-      img {
-        width: 250px;
-        height: 200px;
-        max-width: 100%;
-        display: block;
-        object-fit: cover;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .img-container {
+    max-width: var(--fixed-width);
+    max-height: 25rem;
+    margin: 0 auto;
+    box-shadow: var(--shadow-3);
+    overflow: hidden;
+    border-radius: var(--radius);
+    img {
+    }
+  }
+  .info {
+    background-color: var(--white);
+    padding: 1rem;
+    box-shadow: var(--shadow-2);
+    border-radius: var(--radius);
+    p {
+      color: var(--grey-8);
+      margin: 0;
+      span {
+        margin-left: 1rem;
+        color: var(--grey-5);
       }
     }
   }
-
+  .title {
+    color: var(--primary-8);
+  }
+  .div-style {
+    margin-left: 5px;
+    border-radius: 40%;
+  }
   .description {
-    border: 2px double var(--primary-1);
-    box-shadow: var(--shadow-1);
-    @media (max-width: 400px) {
-      font-size: var(--small-text);
-      p {
-        margin: 0px;
-      }
-    }
-    @media (max-width: 500px) {
-      font-size: var(--small-text);
-      p {
-      }
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-2);
+  }
+  .information {
+    p {
+      text-align: center;
+      margin: 1rem auto;
     }
   }
-  .button-holder {
-    button {
-      padding: 10px;
+  .contact {
+    background-color: var(--white);
+    box-shadow: var(--shadow-2);
+    text-align: center;
+    p {
+      margin: 0 auto;
     }
-  }
-
-  .button-holder {
-    display: flex;
-    justify-content: space-between;
   }
 `
 export default SingleProduct

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { getProductsThunk } from './features/products/products'
+import { getAllProductsThunk } from './features/products/productsSlice'
 import {
   SharedLayout,
   LandingPage,
@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux'
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getProductsThunk())
+    dispatch(getAllProductsThunk())
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (

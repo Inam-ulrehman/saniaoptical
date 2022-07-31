@@ -1,93 +1,106 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import Filter from '../components/Filter'
-import ProductsHolder from '../components/ProductsHolder'
-import { handleGridView } from '../features/products/products'
+import { Filter, ProductsHolder, Sort } from '../components'
+import {
+  changePageIndex,
+  nextPageIndex,
+  prevPageIndex,
+} from '../features/products/productsSlice'
 
 const Products = () => {
   const dispatch = useDispatch()
-  const { copyProducts, isLoading, gridView } = useSelector(
+  const { isLoading, allProducts, products, limitProducts } = useSelector(
     (state) => state.products
   )
-  const handleView = () => {
-    dispatch(handleGridView())
-  }
+
   if (isLoading) {
     return (
       <div>
-        <h1>Loading....</h1>
-        <div className='loading'></div>{' '}
+        <h3>loading....</h3>
+        <div className='loading'></div>
       </div>
     )
   }
   return (
     <Wrapper>
-      <Filter />
-      <hr />
-      <button className='btn' type='button' onClick={handleView}>
-        {gridView ? 'ListView' : 'Grid View'}
-      </button>
-
-      {gridView ? null : (
-        <div className='products-container'>
-          {copyProducts.map((item) => {
-            return (
-              <ProductsHolder gridView={gridView} key={item._id} {...item} />
-            )
-          })}
+      <div className='f-p-box'>
+        <div className='filter-box'>
+          <div className='filter'>
+            <Filter />
+          </div>
         </div>
-      )}
-      <div className='products-container-grid'>
-        {copyProducts.map((item) => {
-          return <ProductsHolder gridView={gridView} key={item._id} {...item} />
-        })}
+        <div className='p-sort'>
+          <Sort />
+        </div>
+        <div className='total'>
+          <p>Total Products: {allProducts.length}</p>
+          <p>TotTa Filter Products:{limitProducts.length}</p>
+        </div>
+        <div className='title-underline'></div>
+        <div className='products'>
+          <div className='p-holder'>
+            {limitProducts.map((item) => {
+              return <ProductsHolder key={item.id} {...item} />
+            })}
+          </div>
+        </div>
       </div>
       <button
-        style={{ position: 'sticky', left: '0', bottom: '0' }}
+        style={{ position: 'fixed', bottom: '0', right: '0' }}
         className='btn'
-        onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+        }}
       >
-        Move-UP
+        Scroll up
       </button>
     </Wrapper>
   )
 }
-const Wrapper = styled.div`
-  @media (min-width: 600px) {
-    .products-container {
-      display: grid;
+const Wrapper = styled.main`
+  overflow: hidden;
+  @media (min-width: 768px) {
+    margin-top: -2rem;
+  }
+
+  .p-sort {
+    margin-top: -2rem;
+
+    width: var(--fixed-width);
+    @media (min-width: 768px) {
+      text-align: center;
     }
   }
 
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 992px) {
-    .products-container {
-    }
-  }
-  @media (min-width: 1200px) {
-  }
-  /* ===Grid-View==== */
-  .products-container-grid {
+  .p-holder {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
-  @media (min-width: 600px) {
-    .products-container-grid {
-      display: grid;
+    @media (min-width: 680px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
-  }
-
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 992px) {
-    .products-container-grid {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+    @media (min-width: 780px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
-  @media (min-width: 1200px) {
+  .button-holder {
+    margin-top: 1rem;
+    text-align: center;
+    button {
+      margin-right: 1rem;
+    }
+  }
+  .title-total {
+    color: var(--primary-8);
+  }
+  .total {
+    display: flex;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+    p {
+      color: var(--primary-8);
+    }
   }
 `
 export default Products
