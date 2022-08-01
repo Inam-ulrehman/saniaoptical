@@ -61,8 +61,8 @@ const CartItemsHolder = ({ name, price, image, _id }) => {
         <button className='btn btn-block' type='button'>
           CHECKOUT
         </button>
-        <p className='title'>Total Items : $ {totalItems}</p>
-        <Link className='btn' to='/products'>
+        <p className='title total-item-title'>Total Items : $ {totalItems}</p>
+        <Link className='btn more-products' to='/products'>
           More products
         </Link>
       </div>
@@ -103,6 +103,12 @@ const Wrapper = styled.div`
         }
       }
     }
+  }
+  .total-item-title {
+    margin: 0;
+  }
+  .more-products {
+    margin-top: 4rem;
   }
 `
 export default CartItemsHolder
