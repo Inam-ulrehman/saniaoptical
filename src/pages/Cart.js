@@ -41,7 +41,6 @@ const Wrapper = styled.div`
     .image-description {
       display: grid;
       grid-template-columns: 1fr 3fr;
-      gap: 1rem;
     }
     .image-box {
       height: 100px;

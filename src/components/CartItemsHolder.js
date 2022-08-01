@@ -1,20 +1,40 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { GrFormClose } from 'react-icons/gr'
 import styled from 'styled-components'
+import { removeCartItem } from '../features/cart/cartSlice'
+import { useEffect } from 'react'
+import { formatPrice } from '../utils/helper'
 
-const CartItemsHolder = ({ name, price, image }) => {
+const CartItemsHolder = ({ name, price, image, _id }) => {
+  const { cart } = useSelector((state) => state.cart)
+  const dispatch = useDispatch()
   const { totalItems } = useSelector((state) => {
     return state.cart
   })
+
+  // handle Remove
+  const handleRemove = () => {
+    dispatch(removeCartItem(_id))
+  }
+  // Total value
+  const calculateTotal = () => {}
+  const newTotal = cart.reduce((total, cart) => {
+    total += cart.price
+    return total
+  }, 0)
+  console.log(newTotal)
+  useEffect(() => {
+    calculateTotal()
+  }, [])
   return (
     <Wrapper className='container'>
       <div className='item-holder'>
         <div className='single-item'>
           <div className='headline'>
             <h5 className='single-item-heading'>MY BAG</h5>
-            <button type='button'>
+            <button onClick={handleRemove} type='button'>
               <GrFormClose />
             </button>
           </div>
@@ -24,13 +44,13 @@ const CartItemsHolder = ({ name, price, image }) => {
             </div>
             <div className='information-box'>
               <div>
-                <p>$ {(price / 100) * 2}</p>
+                <p>{formatPrice(price)}</p>
                 <p>{name}</p>
-                <p>Total Quantity : 1 </p>
+                <p>Quantity : 1 </p>
               </div>
             </div>
             <p className='item-total'>Sub-Total </p>
-            <p className='item-total'> $ 18.00</p>
+            <p className='item-total'> {formatPrice(newTotal)}</p>
           </div>
         </div>
       </div>
@@ -38,8 +58,8 @@ const CartItemsHolder = ({ name, price, image }) => {
       <div className='cart-holder'>
         <h5 className='cart-holder-total'>TOTAL</h5>
         <div>
-          <h5>Sub-total Delivery</h5>
-          <h5>$ 18.00</h5>
+          <h5>Sub-total </h5>
+          <h5>{formatPrice(newTotal)}</h5>
         </div>
         <p className='cart-holder-delivery'>Standard Delivery {`($2.86)`}</p>
         <button className='btn btn-block' type='button'>

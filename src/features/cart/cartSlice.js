@@ -34,8 +34,14 @@ const cartSlice = createSlice({
     addToCartButton: (state, { payload }) => {
       state.cart = [...state.cart, payload]
       setCartInLocalStorage(state.cart)
-      console.log(state.cart.length)
       state.totalItems = state.cart.length
+    },
+    // Remove item here  ======
+
+    removeCartItem: (state, { payload }) => {
+      let tempItem = state.cart.filter((item) => item._id !== payload)
+      state.cart = [...tempItem]
+      setCartInLocalStorage(state.cart)
     },
   },
   // =============Cart fetch start here ===================
@@ -52,6 +58,7 @@ const cartSlice = createSlice({
   },
 })
 // ================ All actions starts here =============
-export const { createFunction, addToCartButton } = cartSlice.actions
+export const { createFunction, addToCartButton, removeCartItem } =
+  cartSlice.actions
 
 export default cartSlice.reducer
