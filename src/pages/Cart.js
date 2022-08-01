@@ -1,42 +1,20 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import CartItemsHolder from '../components/CartItemsHolder'
 
 const Cart = () => {
+  const { cart } = useSelector((state) => {
+    return state.cart
+  })
+
   return (
     <Wrapper>
-      <div className='container'>
-        <div className='item-holder'>
-          <div className='single-item'>
-            <h5 className='single-item-heading'>MY BAG</h5>
-            <div className='image-description'>
-              <div className='image-box'>Image</div>
-              <div className='information-box'>
-                <div>
-                  <p>$ 18.00</p>
-                  <p>information about item</p>
-                  <p>total quantity:1</p>
-                </div>
-
-                <p>x</p>
-              </div>
-              <p className='item-total'>Sub-Total </p>
-              <p className='item-total'> $ 18.00</p>
-            </div>
-          </div>
-        </div>
-        {/* Cart holder Total start herer */}
-        <div className='cart-holder'>
-          <h5 className='cart-holder-total'>TOTAL</h5>
-          <div>
-            <h5>Sub-total Delivery</h5>
-            <h5>$ 18.00</h5>
-          </div>
-          <p className='cart-holder-delivery'>Standard Delivery {`($2.86)`}</p>
-          <button className='btn btn-block' type='button'>
-            CHECKOUT
-          </button>
-        </div>
-      </div>
+      {cart.length > 0 &&
+        cart.map((item) => {
+          console.log(item)
+          return <CartItemsHolder key={item._id} {...item} />
+        })}
     </Wrapper>
   )
 }

@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../components/Footer'
+import { addToCartButton } from '../features/cart/cartSlice'
 
 const SingleProduct = () => {
   const [value, setValue] = useState(false)
+  const dispatch = useDispatch()
   const { allProducts, isLoading } = useSelector((state) => state.products)
   const params = useParams()
   const { Id } = params
@@ -25,6 +27,12 @@ const SingleProduct = () => {
     )
   } else {
     let tempProduct = allProducts.find((item) => item.id === Id)
+
+    // handle cart button //
+
+    const handleCart = () => {
+      dispatch(addToCartButton(tempProduct))
+    }
 
     return (
       <div>
@@ -69,7 +77,11 @@ const SingleProduct = () => {
                     <Link className='btn' to='/products'>
                       Back to products
                     </Link>{' '}
-                    <Link className='btn' to='cart'>
+                    <Link
+                      onClick={() => handleCart(tempProduct)}
+                      className='btn'
+                      to='/cart'
+                    >
                       Add to cart
                     </Link>{' '}
                   </div>

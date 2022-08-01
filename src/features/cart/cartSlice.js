@@ -1,11 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+
 import customFetchProducts from '../../utils/axios'
+import {
+  getCartFromLocalStorage,
+  setCartInLocalStorage,
+} from '../../utils/localStorage'
 
 const initialState = {
-  cart: [],
+  cart: getCartFromLocalStorage() || [],
   isLoading: false,
   cartItems: [],
-  total: 0,
+  totalItems: 0,
+  totalBill: '',
 }
 
 export const cartThunk = createAsyncThunk(
@@ -21,10 +27,14 @@ export const cartThunk = createAsyncThunk(
 )
 
 const cartSlice = createSlice({
-  name: 'products',
+  name: 'cart',
   initialState,
   reducers: {
     createFunction: (state, { payload }) => {},
+    addToCartButton: (state, { payload }) => {
+      state.cart = [...state.cart, payload]
+      setCartInLocalStorage(state.cart)
+    },
   },
   // =============Cart fetch start here ===================
   extraReducers: {
@@ -40,6 +50,6 @@ const cartSlice = createSlice({
   },
 })
 // ================ All actions starts here =============
-export const { createFunction } = cartSlice.actions
+export const { createFunction, addToCartButton } = cartSlice.actions
 
 export default cartSlice.reducer
