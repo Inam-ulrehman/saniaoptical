@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { GrFormClose } from 'react-icons/gr'
 import styled from 'styled-components'
 import { removeCartItem } from '../features/cart/cartSlice'
-import { useEffect } from 'react'
 import { formatPrice } from '../utils/helper'
 
 const CartItemsHolder = ({ name, price, image, _id }) => {
@@ -18,16 +17,13 @@ const CartItemsHolder = ({ name, price, image, _id }) => {
   const handleRemove = () => {
     dispatch(removeCartItem(_id))
   }
-  // Total value
-  const calculateTotal = () => {}
+
   const newTotal = cart.reduce((total, cart) => {
     total += cart.price
     return total
   }, 0)
   console.log(newTotal)
-  useEffect(() => {
-    calculateTotal()
-  }, [])
+
   return (
     <Wrapper className='container'>
       <div className='item-holder'>
