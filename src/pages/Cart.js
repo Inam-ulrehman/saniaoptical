@@ -6,9 +6,36 @@ const Cart = () => {
     <Wrapper>
       <div className='container'>
         <div className='item-holder'>
-          <div className='single-item'>Item-1</div>
+          <div className='single-item'>
+            <h5 className='single-item-heading'>MY BAG</h5>
+            <div className='image-description'>
+              <div className='image-box'>Image</div>
+              <div className='information-box'>
+                <div>
+                  <p>$ 18.00</p>
+                  <p>information about item</p>
+                  <p>total quantity:1</p>
+                </div>
+
+                <p>x</p>
+              </div>
+              <p className='item-total'>Sub-Total </p>
+              <p className='item-total'> $ 18.00</p>
+            </div>
+          </div>
         </div>
-        <div className='cart-holder'>cart holder</div>
+        {/* Cart holder Total start herer */}
+        <div className='cart-holder'>
+          <h5 className='cart-holder-total'>TOTAL</h5>
+          <div>
+            <h5>Sub-total Delivery</h5>
+            <h5>$ 18.00</h5>
+          </div>
+          <p className='cart-holder-delivery'>Standard Delivery {`($2.86)`}</p>
+          <button className='btn btn-block' type='button'>
+            CHECKOUT
+          </button>
+        </div>
       </div>
     </Wrapper>
   )
@@ -30,6 +57,44 @@ const Wrapper = styled.div`
       }
     }
     gap: 5px;
+    /* ===Cart Item Holder=== */
+    .single-item-heading {
+      border-bottom: 1px solid var(--grey-3);
+    }
+    .image-description {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 1rem;
+    }
+    .image-box {
+      height: 100px;
+      width: 100%;
+      background-color: var(--grey-2);
+      padding: 1rem;
+      margin-left: 1rem;
+    }
+    .information-box {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      div {
+        padding: 10px;
+        padding-top: 0;
+        h5 {
+          margin: 0;
+        }
+        p {
+          font-size: var(--extra-small-text);
+          margin: 0;
+        }
+      }
+    }
+    .item-total {
+      margin: 0px;
+      font-size: var(--extra-small-text);
+      display: flex;
+      justify-content: space-around;
+    }
+    /* ===TOTAL BILL HOLDER==== */
     .cart-holder {
       position: fixed;
       width: 150px;
@@ -42,6 +107,26 @@ const Wrapper = styled.div`
       :hover {
         box-shadow: var(--shadow-3);
       }
+
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        h5 {
+          font-size: var(--extra-small-text);
+          margin: 0px;
+          padding: 8px;
+          color: var(--grey-10);
+        }
+      }
+    }
+    .cart-holder-total {
+      border-bottom: 1px solid var(--grey-2);
+      margin-bottom: 5px;
+    }
+    .cart-holder-delivery {
+      font-size: var(--extra-small-text);
+      border-bottom: 2px solid var(--grey-3);
+      margin: 4px 13px;
     }
     @media (min-width: 768px) {
       .cart-holder {
