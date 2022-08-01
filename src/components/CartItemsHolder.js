@@ -73,5 +73,20 @@ const Wrapper = styled.div`
       }
     }
   }
+  @media (max-width: 600px) {
+    .headline {
+      h5 {
+        margin: 0;
+      }
+
+      svg {
+        font-size: 1rem;
+
+        :hover {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
 `
 export default CartItemsHolder
