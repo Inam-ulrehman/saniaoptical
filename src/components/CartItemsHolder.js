@@ -1,21 +1,33 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { GrFormClose } from 'react-icons/gr'
+import styled from 'styled-components'
 
-const CartItemsHolder = () => {
+const CartItemsHolder = ({ name, price, image }) => {
+  const { totalItems } = useSelector((state) => {
+    return state.cart
+  })
   return (
-    <div className='container'>
+    <Wrapper className='container'>
       <div className='item-holder'>
         <div className='single-item'>
-          <h5 className='single-item-heading'>MY BAG</h5>
+          <div className='headline'>
+            <h5 className='single-item-heading'>MY BAG</h5>
+            <button type='button'>
+              <GrFormClose />
+            </button>
+          </div>
           <div className='image-description'>
-            <div className='image-box'>Image</div>
+            <div className='image-box'>
+              <img src={image} alt='' />
+            </div>
             <div className='information-box'>
               <div>
-                <p>$ 18.00</p>
-                <p>information about item</p>
-                <p>total quantity:1</p>
+                <p>$ {(price / 100) * 2}</p>
+                <p>{name}</p>
+                <p>Total Quantity : 1 </p>
               </div>
-
-              <p>x</p>
             </div>
             <p className='item-total'>Sub-Total </p>
             <p className='item-total'> $ 18.00</p>
@@ -33,10 +45,33 @@ const CartItemsHolder = () => {
         <button className='btn btn-block' type='button'>
           CHECKOUT
         </button>
-        <p className='title'>Total Items : 4</p>
+        <p className='title'>Total Items : $ {totalItems}</p>
+        <Link className='btn' to='/products'>
+          More products
+        </Link>
       </div>
-    </div>
+    </Wrapper>
   )
 }
 
+const Wrapper = styled.div`
+  .headline {
+    display: flex;
+    justify-content: space-between;
+    svg {
+      font-size: 2rem;
+      transition: var(--transition);
+      :hover {
+        font-size: 2.2rem;
+      }
+    }
+    button {
+      background: transparent;
+      border: transparent;
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+`
 export default CartItemsHolder

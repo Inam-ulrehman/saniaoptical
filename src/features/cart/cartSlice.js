@@ -34,6 +34,8 @@ const cartSlice = createSlice({
     addToCartButton: (state, { payload }) => {
       state.cart = [...state.cart, payload]
       setCartInLocalStorage(state.cart)
+      console.log(state.cart.length)
+      state.totalItems = state.cart.length
     },
   },
   // =============Cart fetch start here ===================

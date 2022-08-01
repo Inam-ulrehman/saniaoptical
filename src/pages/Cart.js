@@ -11,9 +11,8 @@ const Cart = () => {
   return (
     <Wrapper>
       {cart.length > 0 &&
-        cart.map((item) => {
-          console.log(item)
-          return <CartItemsHolder key={item._id} {...item} />
+        cart.map((item, index) => {
+          return <CartItemsHolder key={index} {...item} />
         })}
     </Wrapper>
   )
@@ -46,10 +45,17 @@ const Wrapper = styled.div`
     }
     .image-box {
       height: 100px;
-      width: 100%;
-      background-color: var(--grey-2);
-      padding: 1rem;
+      width: 100px;
+
+      overflow: hidden;
+
       margin-left: 1rem;
+      img {
+        max-height: 100px;
+        max-width: 100px;
+        width: 100%;
+        object-fit: cover;
+      }
     }
     .information-box {
       display: grid;
