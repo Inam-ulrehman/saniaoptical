@@ -24,6 +24,13 @@ const TotalCartComponent = ({ newTotal, totalItems }) => {
     </Wrapper>
   )
 }
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  .total-item-title {
+    margin: 0px;
+  }
+  .more-products {
+    margin-top: 4rem;
+  }
+`
 
 export default TotalCartComponent

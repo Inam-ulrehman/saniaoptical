@@ -23,20 +23,16 @@ export const orderThunk = createAsyncThunk(
   'order/orderThunk',
   async (order, thunkAPI) => {
     // const { email, password, name } = order
-
     // try {
     //   const response = await customFetchUser.post('/login', {
     //     email,
     //     password,
     //     name,
     //   })
-
     //   return { ...response.data }
     // } catch (error) {
     //   return thunkAPI.rejectWithValue(error.response.data.msg)
     // }
-
-    console.log('work')
   }
 )
 const orderSlice = createSlice({

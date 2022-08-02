@@ -41,7 +41,7 @@ const CheckOutPayment = () => {
     <Wrapper className='container'>
       <div className='form-holder'>
         <h2 className='title head-title'>payment</h2>
-        <form onSubmit={handleSubmit}>
+        <form className='payment-form' onSubmit={handleSubmit}>
           {/* first name Input */}
           <div>
             <label htmlFor='firstName'>First Name</label>
@@ -174,14 +174,12 @@ const CheckOutPayment = () => {
               onChange={handleChange}
             />
           </div>
-          <button type='submit' className='btn'>
+          <button type='submit' className='btn '>
             Place your order
           </button>
         </form>
       </div>
-      <div>
-        <h1>hello</h1>
-      </div>
+      <div></div>
     </Wrapper>
   )
 }
@@ -189,5 +187,36 @@ const CheckOutPayment = () => {
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  .form-holder {
+    form {
+      @media (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    background: var(--white);
+    label,
+    input {
+      width: 200px;
+
+      display: block;
+    }
+  }
+  label {
+    padding: 5px;
+  }
+  .btn {
+    margin-top: 1rem;
+  }
+
+  .head-title {
+    margin-top: 3rem;
+  }
+  @media (min-width: 768px) {
+    .head-title {
+      margin-top: 0rem;
+    }
+  }
 `
 export default CheckOutPayment
