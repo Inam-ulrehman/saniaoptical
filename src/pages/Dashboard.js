@@ -4,9 +4,12 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import CheckOutPayment from '../components/CheckOutPayment'
 import TotalCartComponent from '../components/TotalCartComponent'
+import member from '../images/member.svg'
+import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
   const { cart } = useSelector((state) => state.cart)
+  const { user } = useSelector((state) => state.user)
 
   const newTotal = cart.reduce((total, cart) => {
     total += cart.price
@@ -21,7 +24,17 @@ const Dashboard = () => {
           <TotalCartComponent newTotal={newTotal} />
         </div>
       ) : (
-        <div>There is nothing to pay</div>
+        <div className='member-container'>
+          {/* Member area here */}
+          <h1 className='title'>
+            Hello,<span>{user.name}</span>
+          </h1>
+          <div className='title-underline'></div>
+          <img src={member} alt='' />
+          <Link className='btn btn-block' to='/products'>
+            See our store for more Collections...
+          </Link>
+        </div>
       )}
     </Wrapper>
   )
@@ -73,6 +86,17 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     .single-item {
       margin-top: 0.6rem;
+    }
+  }
+  .member-container {
+    span {
+      color: var(--primary-5);
+    }
+    text-align: center;
+    img {
+      max-width: 300px;
+      max-height: 300px;
+      margin-top: 2rem;
     }
   }
 `
