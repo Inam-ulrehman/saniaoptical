@@ -11,7 +11,6 @@ const initialState = {
   isLoading: false,
   cartItems: [],
   totalItems: 0,
-  totalBill: '',
 }
 
 export const cartThunk = createAsyncThunk(
@@ -43,6 +42,10 @@ const cartSlice = createSlice({
       state.cart = [...tempItem]
       setCartInLocalStorage(state.cart)
     },
+    // Remove whole cart ====
+    removeCart: (state, { payload }) => {
+      state.cart = []
+    },
   },
   // =============Cart fetch start here ===================
   extraReducers: {
@@ -58,7 +61,7 @@ const cartSlice = createSlice({
   },
 })
 // ================ All actions starts here =============
-export const { createFunction, addToCartButton, removeCartItem } =
+export const { createFunction, addToCartButton, removeCartItem, removeCart } =
   cartSlice.actions
 
 export default cartSlice.reducer
