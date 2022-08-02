@@ -42,8 +42,8 @@ const FormInputHolder = () => {
   useEffect(() => {
     if (user.length === undefined) {
       setTimeout(() => {
-        return navigate('/')
-      }, 3000)
+        return navigate('/dashboard')
+      }, 100)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.length])

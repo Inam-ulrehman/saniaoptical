@@ -22,7 +22,6 @@ const CartItemsHolder = ({ name, price, image, _id }) => {
     total += cart.price
     return total
   }, 0)
-  console.log(newTotal)
 
   return (
     <Wrapper className='container'>
@@ -58,9 +57,9 @@ const CartItemsHolder = ({ name, price, image, _id }) => {
           <h5>{formatPrice(newTotal)}</h5>
         </div>
         <p className='cart-holder-delivery'>Standard Delivery {`($2.86)`}</p>
-        <button className='btn btn-block' type='button'>
+        <Link to='/user' className='btn btn-block' type='button'>
           CHECKOUT
-        </button>
+        </Link>
         <p className='title total-item-title'>Total Items : $ {totalItems}</p>
         <Link className='btn more-products' to='/products'>
           More products

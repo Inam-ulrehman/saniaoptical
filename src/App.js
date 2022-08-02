@@ -14,8 +14,10 @@ import {
   User,
   Products,
   SingleProduct,
+  Dashboard,
 } from './pages'
 import { useDispatch } from 'react-redux'
+import { ProtectedRoute } from './components'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -35,6 +37,14 @@ const App = () => {
           <Route path='user' element={<User />} />
           <Route path='Products' element={<Products />} />
           <Route path='/Products/:Id' element={<SingleProduct />} />
+          <Route
+            path='/dashboard'
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
       <ToastContainer />

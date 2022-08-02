@@ -1,6 +1,7 @@
 import About from './About'
 import Cart from './Cart'
 import Contact from './Contact'
+import Dashboard from './Dashboard'
 import ErrorPage from './ErrorPage'
 import LandingPage from './LandingPage'
 import Products from './Products'
@@ -18,4 +19,5 @@ export {
   ErrorPage,
   About,
   Contact,
+  Dashboard,
 }
