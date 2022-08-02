@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatPrice } from '../../utils/helper'
+import { formatPrice } from '../utils/helper'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -17,9 +17,7 @@ const TotalCartComponent = ({ newTotal, totalItems }) => {
       <Link to='/user' className='btn btn-block' type='button'>
         CHECKOUT
       </Link>
-      <p className='title total-item-title'>
-        Total Items : $ {cart.length + 1}
-      </p>
+      <p className='title total-item-title'>Total Items : $ {cart.length}</p>
       <Link className='btn more-products' to='/products'>
         More products
       </Link>

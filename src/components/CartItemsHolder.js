@@ -5,7 +5,7 @@ import { GrFormClose } from 'react-icons/gr'
 import styled from 'styled-components'
 import { removeCartItem } from '../features/cart/cartSlice'
 import { formatPrice } from '../utils/helper'
-import TotalCartComponent from './navbar/TotalCartComponent'
+import TotalCartComponent from './TotalCartComponent'
 
 const CartItemsHolder = ({ name, price, image, _id }) => {
   const { cart } = useSelector((state) => state.cart)

@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import TotalCartComponent from '../components/navbar/TotalCartComponent'
+
 import { useSelector } from 'react-redux'
 import CheckOutPayment from '../components/CheckOutPayment'
+import TotalCartComponent from '../components/TotalCartComponent'
 
 const Dashboard = () => {
   const { cart } = useSelector((state) => state.cart)
