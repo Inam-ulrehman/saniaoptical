@@ -54,4 +54,8 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  .animate__animated {
+    z-index: -1;
+    color: black;
+  }
 `

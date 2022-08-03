@@ -4,8 +4,8 @@ const MobileNavbarWrapper = styled.nav`
   @media (min-width: 768px) {
     display: none;
   }
-
   .container {
+    z-index: 10;
     position: fixed;
     top: 0;
     width: 100%;
