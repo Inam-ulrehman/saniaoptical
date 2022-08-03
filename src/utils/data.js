@@ -32,7 +32,7 @@ export const gender = [
     link: 'https://res.cloudinary.com/inam6530/image/upload/v1659543359/photo-1658752648780-bab3cea5766f_mkcgsp.jpg',
   },
   {
-    id: 1,
+    id: 3,
     title: 'men’s Glasses',
     link: 'https://res.cloudinary.com/inam6530/image/upload/v1659543186/photo-1651218859577-97abc369d12f_cyltc4.jpg',
   },
