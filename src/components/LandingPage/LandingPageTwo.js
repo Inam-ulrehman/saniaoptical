@@ -5,10 +5,19 @@ import { gender } from '../../utils/data'
 import 'animate.css'
 
 const LandingPageTwo = () => {
+  const priceImg =
+    'https://res.cloudinary.com/inam6530/image/upload/v1659548031/GUEST_e332b6bf-10f6-40c6-8286-8997af1bf4e6_tjwg23.jpg'
   return (
     <Wrapper>
-      <h1 className='animate__animated animate__flipInX animate__slower animate__infinite'>
-        Eyewear for Everyone
+      <div className='style'></div>
+      <h1>
+        Eyewear for
+        <span
+          style={{ display: 'inline-block', color: 'var(--primary-5)' }}
+          className='animate__animated animate__flipInX animate__slower animate__infinite'
+        >
+          Everyone
+        </span>
       </h1>
       <p className='title-header'>
         Get a complete pair of prescription glasses starting at $9.95.
@@ -27,6 +36,23 @@ const LandingPageTwo = () => {
           )
         })}
       </div>
+      <div className='style'></div>
+      <div className='container-box'>
+        <div className='price-container'>
+          <h3>Styles for Every Budget</h3>
+          <div className='title-underline'></div>
+          <Link className='btn' to='/products'>
+            under 15 $
+          </Link>
+          <Link className='btn' to='/products'>
+            under 30 $
+          </Link>
+        </div>
+        <div className='img-holder'>
+          <img src={priceImg} alt='' />
+        </div>
+      </div>
+      <div className='style'></div>
     </Wrapper>
   )
 }
@@ -47,6 +73,7 @@ const Wrapper = styled.div`
       overflow: hidden;
       width: 100%;
       object-fit: cover;
+      box-shadow: var(--shadow-2);
     }
   }
   .btn {
@@ -54,11 +81,27 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 768px) {
-    .container-img {
+    .container-img,
+    .container-box {
       display: flex;
       gap: 1rem;
       justify-content: center;
     }
+    .container-box {
+      text-align: center;
+      padding: 3rem;
+
+      .btn {
+        margin-top: 5rem;
+        margin-left: 2rem;
+      }
+    }
+  }
+  .style {
+    height: 2px;
+    width: 100%;
+    border: 2px solid var(--primary-5);
+    margin: 1rem;
   }
 `
 export default LandingPageTwo

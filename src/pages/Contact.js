@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <Wrapper>
       <div className='heading-holder'>
-        <h1 className='title'>
+        <h1 className='title animate__backInUp'>
           Contact <span className='span'> / Us</span>
         </h1>
         <img src={contact} alt='' />

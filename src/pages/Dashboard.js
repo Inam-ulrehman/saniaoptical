@@ -1,6 +1,5 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import styled from 'styled-components'
-
 import { useSelector } from 'react-redux'
 import CheckOutPayment from '../components/CheckOutPayment'
 import TotalCartComponent from '../components/TotalCartComponent'
@@ -16,6 +15,9 @@ const Dashboard = () => {
     return total
   }, 0)
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   return (
     <Wrapper>
       {cart.length > 0 ? (

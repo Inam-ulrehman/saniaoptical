@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Filter, ProductsHolder, Sort } from '../components'
@@ -8,6 +9,9 @@ const Products = () => {
     (state) => state.products
   )
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   if (isLoading) {
     return (
       <div>

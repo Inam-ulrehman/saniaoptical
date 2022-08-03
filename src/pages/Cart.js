@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartItemsHolder from '../components/CartItemsHolder'
@@ -9,6 +9,9 @@ const Cart = () => {
     return state.cart
   })
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   return (
     <Wrapper>
       {cart.length > 0 ? (
