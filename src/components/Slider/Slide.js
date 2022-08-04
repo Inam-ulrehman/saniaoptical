@@ -57,8 +57,6 @@ const Wrapper = styled.div`
   }
   @media (min-width: 600px) {
     .item {
-      width: 200px;
-      height: 200px;
     }
   }
   span {
