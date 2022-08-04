@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <Wrapper className='api-box'>
       <div className='logo-holder'>
-        <h1 className='title'>Login to your account </h1>
+        <h1 className='title'>Member Area </h1>
       </div>
       <div className='title-underline underline-create'></div>
       {/* Login/Signup */}

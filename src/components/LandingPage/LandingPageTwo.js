@@ -41,10 +41,10 @@ const LandingPageTwo = () => {
         <div className='price-container'>
           <h3>Styles for Every Budget</h3>
           <div className='title-underline'></div>
-          <Link className='btn' to='/products'>
+          <Link className='btn btn-style' to='/products'>
             under 15 $
           </Link>
-          <Link className='btn' to='/products'>
+          <Link className='btn btn-style' to='/products'>
             under 30 $
           </Link>
         </div>
@@ -78,6 +78,10 @@ const Wrapper = styled.div`
   }
   .btn {
     max-width: 300px;
+  }
+  .btn-style {
+    margin-top: 1rem;
+    margin-right: 1rem;
   }
 
   @media (min-width: 768px) {

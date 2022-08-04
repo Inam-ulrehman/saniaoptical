@@ -59,6 +59,9 @@ const Contact = () => {
           </label>
           <textarea rows='7' cols='50' className='form-input' type='text' />
         </div>
+        <button className='btn btn-block' type='submit'>
+          Submit your request
+        </button>
       </form>
       <div className='style'></div>
       <GoogleApi />
