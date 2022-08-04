@@ -1,28 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import LandingPageThreeHolder from './LandingPageThreeHolder'
+import SliderHolder from './SliderHolder'
 
-const LandingPageThree = () => {
+const Slide = () => {
   const { allProducts } = useSelector((state) => state.products)
   return (
     <Wrapper>
       <h1 className='title'>
-        Fresh <span>Collection</span>
+        New <span>Arrivals</span>
       </h1>
       <div className='container'>
         <div className='slider'>
           {allProducts.length > 0 &&
             allProducts
               .map((item) => {
-                return (
-                  <LandingPageThreeHolder
-                    key={item._id}
-                    {...item}
-                  ></LandingPageThreeHolder>
-                )
+                return <SliderHolder key={item._id} {...item}></SliderHolder>
               })
-              .slice(0, 10)}
+              .slice(11, 20)}
         </div>
       </div>
     </Wrapper>
@@ -64,4 +59,4 @@ const Wrapper = styled.div`
     color: var(--primary-5);
   }
 `
-export default LandingPageThree
+export default Slide

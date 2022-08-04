@@ -19,6 +19,9 @@ const SingleProduct = () => {
   useEffect(() => {
     fixRefresh()
   }, [])
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   if (isLoading) {
     return (
       <div>

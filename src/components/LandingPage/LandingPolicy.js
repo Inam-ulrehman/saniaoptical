@@ -41,12 +41,6 @@ const Wrapper = styled.div`
       padding: 0;
       width: 300px;
     }
-    h1 {
-    }
-  }
-  .box1 {
-  }
-  .box4 {
   }
 `
 export default LandingPolicy

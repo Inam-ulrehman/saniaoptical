@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import styled from 'styled-components'
 import contact from '../images/contact.svg'
 import GoogleApi from '../components/GoogleApi'
@@ -10,6 +10,9 @@ const handleSubmit = (e) => {
 }
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [])
   return (
     <Wrapper>
       <div className='heading-holder'>
