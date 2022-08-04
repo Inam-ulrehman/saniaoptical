@@ -16,6 +16,8 @@ const Wrapper = styled.div`
   img {
     max-height: 75px;
     object-fit: cover;
+
+    transform: translateX(-10px);
   }
   @media (min-width: 600px) {
     img {
