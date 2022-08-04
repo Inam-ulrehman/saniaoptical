@@ -71,7 +71,7 @@ const productSlice = createSlice({
           item.name.startsWith(value)
         )
         state.limitProducts = tempProducts
-        console.log('something in search')
+
         return
       } else {
         state.limitProducts = state.allProducts
