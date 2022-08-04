@@ -16,13 +16,19 @@ const Wrapper = styled.li`
   a {
     color: var(--grey-5);
     transition: var(--transition);
-    padding: 7px !important;
-    margin-left: 2px;
+    padding: 5px !important;
+    padding-left: 0px !important;
+
     :hover {
       background-color: var(--primary-3);
       color: var(--white);
       border-radius: var(--radius);
       transition: var(--transition);
+    }
+  }
+  @media (min-width: 900px) {
+    a {
+      padding: 12px !important;
     }
   }
   .active {

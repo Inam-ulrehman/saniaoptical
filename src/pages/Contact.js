@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import contact from '../images/contact.svg'
+import GoogleApi from '../components/GoogleApi'
 
 //  handle Submit
 const handleSubmit = (e) => {
@@ -57,6 +58,7 @@ const Contact = () => {
           <textarea rows='7' cols='50' className='form-input' type='text' />
         </div>
       </form>
+      <GoogleApi />
     </Wrapper>
   )
 }

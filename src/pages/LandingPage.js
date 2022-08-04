@@ -5,7 +5,6 @@ import LandingPageThree from '../components/LandingPage/LandingPageThree'
 import LandingPageTwo from '../components/LandingPage/LandingPageTwo'
 import LandingPolicy from '../components/LandingPage/LandingPolicy'
 import GoogleApi from '../components/GoogleApi'
-import Footer from '../components/Footer/Footer'
 
 const LandingPage = () => {
   useEffect(() => {
@@ -18,7 +17,6 @@ const LandingPage = () => {
       <LandingPageTwo />
       <LandingPageThree />
       <GoogleApi />
-      <Footer />
     </Wrapper>
   )
 }

@@ -2,7 +2,7 @@ import { React, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartItemsHolder from '../components/CartItemsHolder'
-import { Link } from 'react-router-dom'
+import EmptyCart from '../components/EmptyCart'
 
 const Cart = () => {
   const { cart } = useSelector((state) => {
@@ -19,22 +19,13 @@ const Cart = () => {
           return <CartItemsHolder key={index} {...item} />
         })
       ) : (
-        <div>
-          <h1 className='title'>Cart is empty</h1>
-          <div className='title-underline'></div>
-          <div className='btn-holder'>
-            <Link className='btn' to='/products'>
-              Back to products
-            </Link>
-          </div>
-        </div>
+        <EmptyCart />
       )}
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  height: 200vh;
   .container {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -140,12 +131,6 @@ const Wrapper = styled.div`
       .single-item {
         margin-top: 0.6rem;
       }
-    }
-  }
-  .btn-holder {
-    text-align: center;
-    a {
-      margin-top: 5rem;
     }
   }
 `

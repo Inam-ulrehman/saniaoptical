@@ -27,7 +27,6 @@ const DesktopNavbar = () => {
 }
 const Wrapper = styled.div`
   .btn {
-    text-align: center;
     padding-top: 10px;
     padding-bottom: 26px;
     height: 2rem;
