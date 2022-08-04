@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import Footer from '../components/Footer'
+
 import { addToCartButton } from '../features/cart/cartSlice'
 
 const SingleProduct = () => {
@@ -111,7 +111,6 @@ const SingleProduct = () => {
                 <p>if you like to contact us we show contact us component</p>
               </div>
             </div>
-            <Footer />
           </Wrapper>
         )}
       </div>
