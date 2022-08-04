@@ -1,11 +1,13 @@
 import { React, useEffect } from 'react'
 import styled from 'styled-components'
 import Logo from '../components/Logo'
-import aboutUs from '../images/aboutus.svg'
+
 import 'animate.css'
 import GoogleApi from '../components/GoogleApi'
 
 const About = () => {
+  const aboutUs =
+    'https://res.cloudinary.com/inam6530/image/upload/v1659628330/Beige_Elegant_Premium_Glasses_for_Men_Instagram_Post_1_x6li3l.png'
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [])
@@ -36,6 +38,7 @@ const Wrapper = styled.article`
       margin: 0 auto;
       max-height: 100vh;
       width: 100%;
+      object-fit: cover;
     }
   }
 `
