@@ -333,3 +333,9 @@ ul {
   padding: 2rem 1rem;
   text-align: center;
 }
+.style {
+  height: 2px;
+  width: 100%;
+  border: 2px solid var(--primary-5);
+  margin: 1rem;
+}
