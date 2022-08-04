@@ -4,6 +4,7 @@ import { navbarData } from '../../utils/data'
 import MobileNavbarComponent from './MobileNavbarComponent'
 import MobileNavbarWrapper from '../../wrappers/MobileNavbarWrapper'
 import Logo from '../Logo'
+import LogOut from './LogOut'
 
 const MobileNavbar = () => {
   const [values, setValues] = useState(false)
@@ -27,6 +28,7 @@ const MobileNavbar = () => {
       <div className='container'>
         <div className='container-header'>
           <Logo />
+          <LogOut />
           {values ? (
             <AiOutlineClose onClick={handleMenu} className='menu-icon' />
           ) : (
