@@ -45,6 +45,7 @@ const Wrapper = styled.div`
     width: 100px;
     height: 100px;
     margin: 10px;
+    background: var(--white);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 0 auto;
@@ -57,6 +58,8 @@ const Wrapper = styled.div`
   }
   @media (min-width: 600px) {
     .item {
+      width: 200px;
+      height: 200px;
     }
   }
   span {
