@@ -14,8 +14,13 @@ const SliderHolder = ({ id, image }) => {
 const Wrapper = styled.div`
   margin-right: 10px;
   img {
-    max-height: 200px;
+    max-height: 75px;
     object-fit: cover;
+  }
+  @media (min-width: 600px) {
+    img {
+      max-height: 150px;
+    }
   }
 `
 

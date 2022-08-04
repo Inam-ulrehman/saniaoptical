@@ -47,8 +47,8 @@ const Wrapper = styled.div`
 
   .item {
     flex: 0 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     margin: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -58,6 +58,12 @@ const Wrapper = styled.div`
     :hover {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
+    }
+  }
+  @media (min-width: 600px) {
+    .item {
+      width: 200px;
+      height: 200px;
     }
   }
   span {

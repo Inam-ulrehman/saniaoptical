@@ -43,7 +43,7 @@ const Wrapper = styled.form`
     border-top-right-radius: var(--radius);
     img {
       width: 100%;
-      height: 200px;
+      height: 100px;
       object-fit: cover;
     }
   }
