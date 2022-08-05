@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import { customFetchUser } from '../../utils/axios'
+// import { customFetchUser } from '../../utils/axios'
 
 const initialState = {
   name: '',
@@ -14,7 +14,6 @@ const initialState = {
 export const contactThunk = createAsyncThunk(
   'contact/contactThunk',
   async (contact, thunkAPI) => {
-    console.log(contact)
     // try {
     //   const response = await customFetchUser.post('/login', {})
     //   return { ...response.data }
