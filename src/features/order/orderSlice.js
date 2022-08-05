@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
 import { removeCartFromLocalStorage } from '../../utils/localStorage'
-// import { customFetchUser } from '../../utils/axios'
 
 const initialState = {
   firstName: '',
@@ -21,19 +20,7 @@ const initialState = {
 
 export const orderThunk = createAsyncThunk(
   'order/orderThunk',
-  async (order, thunkAPI) => {
-    // const { email, password, name } = order
-    // try {
-    //   const response = await customFetchUser.post('/login', {
-    //     email,
-    //     password,
-    //     name,
-    //   })
-    //   return { ...response.data }
-    // } catch (error) {
-    //   return thunkAPI.rejectWithValue(error.response.data.msg)
-    // }
-  }
+  async (order, thunkAPI) => {}
 )
 const orderSlice = createSlice({
   name: 'order',
