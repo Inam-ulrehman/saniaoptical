@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { removeCart } from '../features/cart/cartSlice'
 import { getPaymentValue, orderThunk } from '../features/order/orderSlice'
+import { toast } from 'react-toastify'
 
 const CheckOutPayment = () => {
   const dispatch = useDispatch()
@@ -27,8 +28,40 @@ const CheckOutPayment = () => {
   // const handleSubmit
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(orderThunk())
-    dispatch(removeCart())
+    if (
+      !card ||
+      !country ||
+      !exp ||
+      !digit ||
+      !email ||
+      !firstName ||
+      !house ||
+      !lastName ||
+      !mobile ||
+      !province ||
+      !street ||
+      !town
+    ) {
+      return toast.info('Please fill in all fields...')
+    } else {
+      dispatch(
+        orderThunk({
+          card,
+          country,
+          exp,
+          digit,
+          email,
+          firstName,
+          house,
+          lastName,
+          mobile,
+          province,
+          street,
+          town,
+        })
+      )
+      dispatch(removeCart())
+    }
   }
   // Const handleChange
   const handleChange = (e) => {
@@ -46,6 +79,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='firstName'>First Name</label>
             <input
+              placeholder='Name'
               type='text'
               id='firstName'
               name='firstName'
@@ -57,6 +91,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='lastName'>Last Name</label>
             <input
+              placeholder='Family Name'
               type='text'
               id='lastName'
               name='lastName'
@@ -66,8 +101,9 @@ const CheckOutPayment = () => {
           </div>
           {/* house Input */}
           <div>
-            <label htmlFor='house'>House / Apt NO</label>
+            <label htmlFor='house'>Apt / House No</label>
             <input
+              placeholder='Apt 3 House No 4 '
               type='text'
               id='house'
               name='house'
@@ -101,6 +137,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='province'>Province</label>
             <input
+              placeholder='Ontario'
               type='text'
               id='province'
               name='province'
@@ -112,6 +149,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='country'>Country</label>
             <input
+              placeholder='Canada'
               type='text'
               id='country'
               name='country'
@@ -123,6 +161,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='card'>Card No</label>
             <input
+              placeholder='4545 4545 4545 4545'
               type='number'
               id='card'
               name='card'
@@ -134,6 +173,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='exp'>Expiry Date</label>
             <input
+              placeholder='1224'
               type='number'
               id='exp'
               name='exp'
@@ -145,6 +185,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='digit'>3 Digits - cvv</label>
             <input
+              placeholder='Back of your card'
               type='number'
               id='digit'
               name='digit'
@@ -156,6 +197,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='mobile'>Mobile or Home No</label>
             <input
+              placeholder='4165000000'
               type='number'
               id='mobile'
               name='mobile'
@@ -167,6 +209,7 @@ const CheckOutPayment = () => {
           <div>
             <label htmlFor='name'>Email</label>
             <input
+              placeholder='Jain@email.com'
               type='email'
               id='email'
               name='email'

@@ -52,11 +52,24 @@ const orderSlice = createSlice({
     },
     [orderThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false
+      state.firstName = ''
+      state.lastName = ''
+      state.house = ''
+      state.street = ''
+      state.town = ''
+      state.province = ''
+      state.country = ''
+      state.card = ''
+      state.exp = ''
+      state.digit = ''
+      state.mobile = ''
+      state.email = ''
       toast.success('Thank you for your order.', {
         position: 'top-center',
       })
       state.cart = ''
       removeCartFromLocalStorage()
+      // After payment clear state //
     },
     [orderThunk.rejected]: (state, { payload }) => {
       state.isLoading = true
