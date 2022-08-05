@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react'
 import styled from 'styled-components'
-
+import GoogleMaps from '../components/GoogleMaps'
 import 'animate.css'
 import GoogleApi from '../components/GoogleApi'
 
@@ -11,6 +11,7 @@ const About = () => {
   return (
     <Wrapper>
       <div className='image-holder'></div>
+      <GoogleMaps />
       <div className='style'></div>
       <GoogleApi />
     </Wrapper>
