@@ -66,6 +66,7 @@ const FormInputHolder = () => {
               Name
             </label>
             <input
+              placeholder='First Name'
               type='text'
               className='form-input'
               name='name'
@@ -82,6 +83,7 @@ const FormInputHolder = () => {
             email
           </label>
           <input
+            placeholder='Email Address'
             type='text'
             className='form-input'
             name='email'
@@ -90,13 +92,14 @@ const FormInputHolder = () => {
             onChange={handleChange}
           />
         </div>
-        {/* name input */}
+        {/* password input */}
         <div>
           <label htmlFor='password' className='form-label'>
             password
           </label>
           <input
-            type='text'
+            placeholder='Password'
+            type='password'
             className='form-input'
             name='password'
             id='password'

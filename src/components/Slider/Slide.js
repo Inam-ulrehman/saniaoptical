@@ -10,6 +10,7 @@ const Slide = () => {
       <h1 className='title'>
         New <span>Arrivals</span>
       </h1>
+      <p className='title style-title'>scroll right</p>
       <div className='container'>
         <div className='slider'>
           {allProducts.length > 0 &&
@@ -57,6 +58,9 @@ const Wrapper = styled.div`
     }
   }
   @media (min-width: 600px) {
+    .style-title {
+      color: white;
+    }
     .item {
       width: 200px;
       height: 200px;
@@ -64,6 +68,9 @@ const Wrapper = styled.div`
   }
   span {
     color: var(--primary-5);
+  }
+  .style-title {
+    margin: 0 auto;
   }
 `
 export default Slide

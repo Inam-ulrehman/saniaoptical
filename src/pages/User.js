@@ -8,7 +8,9 @@ const LandingPage = () => {
   return (
     <Wrapper className='api-box'>
       <div className='logo-holder'>
-        <h1 className='title'>Member Area </h1>
+        <h1 className='title'>
+          Member <span>Area</span>
+        </h1>
       </div>
       <div className='title-underline underline-create'></div>
       {/* Login/Signup */}
@@ -27,6 +29,9 @@ const Wrapper = styled.div`
   }
   .underline-create {
     margin-top: 1rem;
+  }
+  span {
+    color: var(--primary-5);
   }
 `
 export default LandingPage
