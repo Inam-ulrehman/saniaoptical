@@ -14,10 +14,9 @@ const initialState = {
 export const contactThunk = createAsyncThunk(
   'contact/contactThunk',
   async (contact, thunkAPI) => {
-    console.log(contact)
     try {
       const response = await customFetchContact.post('/contacts', contact)
-      console.log(contact)
+
       return { ...response.data }
     } catch (error) {
       console.log(error.response)
