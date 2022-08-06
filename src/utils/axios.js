@@ -12,6 +12,10 @@ export const customFetchUser = axios.create({
   baseURL: 'https://apiprojectinam.herokuapp.com/api/v1/auth',
 })
 
-//  default //
+//  contact rootURL //
+
+export const customFetchContact = axios.create({
+  baseURL: 'https://saniaopticalbyinam.herokuapp.com/api/v1',
+})
 
 export default customFetchProducts
