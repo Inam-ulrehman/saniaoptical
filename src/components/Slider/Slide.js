@@ -10,7 +10,7 @@ const Slide = () => {
       <h1 className='title'>
         New <span>Arrivals</span>
       </h1>
-      <p className='title style-title'>scroll right</p>
+
       <div className='container'>
         <div className='slider'>
           {allProducts.length > 0 &&
