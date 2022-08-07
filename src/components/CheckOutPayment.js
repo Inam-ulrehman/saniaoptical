@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { removeCart } from '../features/cart/cartSlice'
 import { getPaymentValue, orderThunk } from '../features/order/orderSlice'
-import { toast } from 'react-toastify'
+import { getCartFromLocalStorage } from '../utils/localStorage'
 
 const CheckOutPayment = () => {
   const dispatch = useDispatch()
@@ -26,42 +26,27 @@ const CheckOutPayment = () => {
   } = order
 
   // const handleSubmit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (
-      !card ||
-      !country ||
-      !exp ||
-      !digit ||
-      !email ||
-      !firstName ||
-      !house ||
-      !lastName ||
-      !mobile ||
-      !province ||
-      !street ||
-      !town
-    ) {
-      return toast.info('Please fill in all fields...')
-    } else {
-      dispatch(
-        orderThunk({
-          card,
-          country,
-          exp,
-          digit,
-          email,
-          firstName,
-          house,
-          lastName,
-          mobile,
-          province,
-          street,
-          town,
-        })
-      )
-      dispatch(removeCart())
-    }
+    const orderList = await getCartFromLocalStorage()
+    dispatch(
+      orderThunk({
+        card,
+        country,
+        exp,
+        digit,
+        email,
+        firstName,
+        house,
+        lastName,
+        mobile,
+        province,
+        street,
+        town,
+        orderList,
+      })
+    )
+    dispatch(removeCart())
   }
   // Const handleChange
   const handleChange = (e) => {

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
+import { customFetchOrder } from '../../utils/axios'
 import { removeCartFromLocalStorage } from '../../utils/localStorage'
 
 const initialState = {
@@ -15,12 +16,26 @@ const initialState = {
   digit: '',
   mobile: '',
   email: '',
+  orderList: [],
   isLoading: false,
 }
 
 export const orderThunk = createAsyncThunk(
   'order/orderThunk',
-  async (order, thunkAPI) => {}
+  async (order, thunkAPI) => {
+    console.log(order)
+    console.log(thunkAPI.getState().user.user.token)
+    try {
+      const response = await customFetchOrder.post('/orders', order, {
+        headers: {
+          Authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
+        },
+      })
+      console.log(response)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
 )
 const orderSlice = createSlice({
   name: 'order',
@@ -39,18 +54,18 @@ const orderSlice = createSlice({
     },
     [orderThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false
-      state.firstName = ''
-      state.lastName = ''
-      state.house = ''
-      state.street = ''
-      state.town = ''
-      state.province = ''
-      state.country = ''
-      state.card = ''
-      state.exp = ''
-      state.digit = ''
-      state.mobile = ''
-      state.email = ''
+      // state.firstName = ''
+      // state.lastName = ''
+      // state.house = ''
+      // state.street = ''
+      // state.town = ''
+      // state.province = ''
+      // state.country = ''
+      // state.card = ''
+      // state.exp = ''
+      // state.digit = ''
+      // state.mobile = ''
+      // state.email = ''
       toast.success('Thank you for your order.', {
         position: 'top-center',
       })

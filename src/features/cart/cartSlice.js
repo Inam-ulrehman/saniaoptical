@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import customFetchProducts from '../../utils/axios'
 import {
   getCartFromLocalStorage,
+  removeCartFromLocalStorage,
   setCartInLocalStorage,
 } from '../../utils/localStorage'
 
@@ -45,6 +46,7 @@ const cartSlice = createSlice({
     // Remove whole cart ====
     removeCart: (state, { payload }) => {
       state.cart = []
+      removeCartFromLocalStorage()
     },
   },
   // =============Cart fetch start here ===================

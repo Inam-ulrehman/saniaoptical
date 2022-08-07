@@ -2,9 +2,10 @@ import React from 'react'
 import { formatPrice } from '../utils/helper'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { removeCart } from '../features/cart/cartSlice'
 const TotalCartComponent = ({ newTotal, totalItems }) => {
+  const dispatch = useDispatch()
   const { cart } = useSelector((state) => state.cart)
   return (
     <Wrapper className='cart-holder'>
@@ -21,6 +22,15 @@ const TotalCartComponent = ({ newTotal, totalItems }) => {
       <Link className='btn more-products' to='/products'>
         More products
       </Link>
+      <button
+        type='button'
+        onClick={() => {
+          dispatch(removeCart())
+        }}
+        className='btn cart-btn'
+      >
+        Empty your Cart
+      </button>
     </Wrapper>
   )
 }
@@ -30,6 +40,9 @@ const Wrapper = styled.div`
   }
   .more-products {
     margin-top: 4rem;
+  }
+  .cart-btn {
+    margin-top: 1rem;
   }
 `
 
