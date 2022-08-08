@@ -280,7 +280,7 @@ ul {
 }
 
 .active {
-  color: var(--primary-5);
+  /* color: var(--primary-5); */
 }
 .hero-image {
   /* background-image: url('../src/images/hero.jpg'); */

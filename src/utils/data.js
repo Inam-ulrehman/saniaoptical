@@ -2,7 +2,7 @@ import { AiOutlineHome, AiOutlineSearch } from 'react-icons/ai'
 import { FaUserTie, FaUserFriends, FaPhoneAlt } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
 
-// FaPowerOff
+// ======Data for navbar=========Start
 
 export const navbarData = [
   { id: 1, path: '/', title: 'Home', icon: <AiOutlineHome /> },
@@ -18,6 +18,23 @@ export const navbarData = [
 
   { id: 6, path: '/cart', title: 'Cart', icon: <IoMdCart /> },
 ]
+
+// ======Data for navbar=========End
+
+// ======Data for Dashboard=========Start
+export const dashboard = [
+  {
+    id: 1,
+    path: 'orders',
+    title: 'Orders',
+  },
+  {
+    id: 2,
+    path: '/dashboard',
+    title: 'Payments',
+  },
+]
+// ======Data for Dashboard=========End
 
 // category for gender
 export const gender = [

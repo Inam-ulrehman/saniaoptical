@@ -18,6 +18,9 @@ import {
 } from './pages'
 import { useDispatch } from 'react-redux'
 import { ProtectedRoute } from './components'
+import Payment from './components/Dashboard.js/Payment'
+
+import Orders from './components/Dashboard.js/Orders'
 
 const App = () => {
   const dispatch = useDispatch()
@@ -37,14 +40,18 @@ const App = () => {
           <Route path='user' element={<User />} />
           <Route path='Products' element={<Products />} />
           <Route path='/Products/:Id' element={<SingleProduct />} />
-          <Route
-            path='/dashboard'
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
+        </Route>
+        <Route
+          path='/dashboard'
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Payment />} />
+
+          <Route path='orders' element={<Orders />} />
         </Route>
       </Routes>
       <ToastContainer />
