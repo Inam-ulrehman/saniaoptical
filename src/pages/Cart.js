@@ -26,6 +26,7 @@ const Cart = () => {
 }
 
 const Wrapper = styled.div`
+  min-height: 100vh;
   .container {
     display: grid;
     grid-template-columns: 2fr 1fr;
