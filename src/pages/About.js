@@ -5,7 +5,7 @@ import { aboutUsData } from '../utils/data'
 
 const About = () => {
   const aboutImg =
-    'https://firebasestorage.googleapis.com/v0/b/glasshouse-120.appspot.com/o/Untitled%20design.png?alt=media&token=2a21816d-3393-4567-a982-ba5116557360'
+    'https://firebasestorage.googleapis.com/v0/b/burger-queen-6b0d2.appspot.com/o/Untitled%20design%20(1)_800x800.png?alt=media&token=56acd09a-fd33-424c-9bac-d54bf13eb0ec'
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
   }, [])
